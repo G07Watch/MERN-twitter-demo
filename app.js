@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 
-import  users from './routes/api/users';
-import tweets from './routes/api/tweets';
+const  users = require('./routes/api/users');
+const tweets = require('./routes/api/tweets');
 
 
 mongoose
@@ -17,7 +17,8 @@ app.get("/", (req, res) =>{
   res.send("App is running")
 });
 
-app.use("/api/users",)
+app.use("/api/users", users);
+app.use("/api/tweets", tweets);
 
 const port = process.env.PORT || 5000;
 

@@ -1,9 +1,8 @@
-import express from 'express';
-
+const express = require('express');
 const router = express.Router();
 
 router.get("/test", (req, res) => {
   res.json({ msg: "This is the tweet route" });
 })
 
-export default router;
+module.exports = router;
