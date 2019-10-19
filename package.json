@@ -4,7 +4,8 @@
   "description": "MERN_Stack_twitter_clone",
   "main": "app.js",
   "scripts": {
-    "test": "mern_test"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "repository": {
     "type": "git",
