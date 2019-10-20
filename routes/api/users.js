@@ -4,17 +4,13 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => {
   res.json({ msg: "This is the user route" });
 })
 
-//
-
-const validateRegisterInput = (body)=>{
-  if (body.name && body.email && body.password){ return true;}
-  else{ return false;}
-};
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -57,15 +53,6 @@ router.post("/register", (req, res) => {
   });
 });
 
-
-const validateLoginInput = (body) =>{
-  if (body.name && body.password){
-    return true;
-  }
-
-  else return false;
-
-};
 
 
 router.post("/login", (req, res) => {
