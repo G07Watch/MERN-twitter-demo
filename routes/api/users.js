@@ -9,7 +9,7 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the user route" });
 })
 
-
+//
 
 const validateRegisterInput = (body)=>{
   if (body.name && body.email && body.password){ return true;}
