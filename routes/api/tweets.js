@@ -9,7 +9,7 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the tweet route" });
 })
 
-router.get("/", (req,res)=>{
+router.get("/", (req, res)=>{
   Tweet
   .find()
   .sort({ date: -1 })
@@ -22,7 +22,15 @@ router.get("/user/:user_id", (req, res) =>{
     .find({user: req.params.user_id })
     .then(tweets => res.json(tweets))
     .catch(err => res.status(400).json(err))
-}  )
+})
+
+
+router.get("/:id", (req, res)=> {
+  Tweet
+  .findById(req.params.id)
+  .then(tweet=> res.json(tweet))
+  .catch(err => res.status(400).json(err))
+})
 
 router.post("/",
   passport.authenticate("jwt", { session: false }),
