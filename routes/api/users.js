@@ -12,8 +12,8 @@ router.get("/test", (req, res) => {
 
 
 const validateRegisterInput = (body)=>{
-  if (body.name && body.email && body.password) return true;
-  else return false;
+  if (body.name && body.email && body.password){ return true;}
+  else{ return false;}
 };
 
 router.post("/register", (req, res) => {
