@@ -9,6 +9,13 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the tweet route" });
 })
 
+router.get("/", (req,res)=>{
+  Tweet
+  .find()
+  .sort({ date: -1 })
+  .then(tweets => res.json(tweets))
+  .catch(err => res.status(400).json(err))
+})
 
 router.post("/",
   passport.authenticate("jwt", { session: false }),
