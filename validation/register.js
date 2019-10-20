@@ -5,7 +5,6 @@ module.exports = function validateRegisterInput(data) {
   let errors = {};
 
   data.name = validText(data.name) ? data.name : "";
-  debugger
   data.email = validText(data.email) ? data.email : "";
   data.password = validText(data.password) ? data.password : "";
   data.password2 = validText(data.password2) ? data.password2 : "";
@@ -37,7 +36,7 @@ module.exports = function validateRegisterInput(data) {
 
   }
 
-  if (Validator.equals(data.password, data.password2)){
+  if (!Validator.equals(data.password, data.password2)){
     errors.password2 = "Passwords must match";
   }
 
