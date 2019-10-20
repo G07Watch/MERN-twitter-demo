@@ -24,7 +24,6 @@ router.get("/user/:user_id", (req, res) =>{
     .catch(err => res.status(400).json(err))
 })
 
-
 router.get("/:id", (req, res)=> {
   Tweet
   .findById(req.params.id)
