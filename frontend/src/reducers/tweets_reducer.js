@@ -19,4 +19,3 @@ const TweetsReducer = (state = { all: {}, user: {}, new: undefined }, action) =>
 };
 
 export default TweetsReducer;
-Routes
